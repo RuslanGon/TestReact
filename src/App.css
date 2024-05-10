@@ -1,4 +1,7 @@
 #root {
-background-color: rgb(189, 183, 183);
+    background-color: rgb(189, 183, 183);
 }
 
+ul {
+    list-style: none;
+}

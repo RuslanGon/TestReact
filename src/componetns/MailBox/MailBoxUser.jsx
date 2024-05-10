@@ -1,9 +1,14 @@
-
-
-const MailBoxUser = () => {
+const MailBoxUser = ({MailBoxTitle}) => {
   return (
-    <div>MailBoxUser</div>
-  )
-}
+    <div>
+      <h2>{MailBoxTitle}</h2>
+      <ul>
+        <li>Ruslan@gmail.com</li>
+        <li>Lena@gmail.com</li>
+        <li>Igor@gmail.com</li>
+      </ul>
+    </div>
+  );
+};
 
-export default MailBoxUser
+export default MailBoxUser;
