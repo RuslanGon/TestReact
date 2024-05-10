@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import css from '../MailBox/MailBoxUser.module.css'
+import MailBoxList from '../MailBoxList/MailBoxList';
 
 const MailBoxUser = ({ boxTitle, mailCounter = 0,boxUsers  }) => {
     const isMailBoxFull = mailCounter === 0
@@ -11,11 +12,7 @@ const MailBoxUser = ({ boxTitle, mailCounter = 0,boxUsers  }) => {
       ) : (
         <p>Количество активных ячеек {mailCounter}</p>
       )}
-      <ul>
-        {Array.isArray(boxUsers) && boxUsers.map(user => {
-            return <li key={user.id}>{user.userEmail}</li>
-        })}
-      </ul>
+      <MailBoxList boxUsers={boxUsers} />
     </div>
   );
 };
