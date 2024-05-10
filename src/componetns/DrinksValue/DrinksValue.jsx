@@ -1,11 +1,11 @@
 
 
-const DrinksValue = () => {
+const DrinksValue = ({drinks}) => {
   return (
     <ul>
-        <li>Beer: 3</li>
-        <li>Whiskey: 5</li>
-        <li>Wine:1</li>
+        <li>Beer: {drinks.beer}</li>
+        <li>Whiskey: {drinks.whiskey}</li>
+        <li>Wine: {drinks.wine}</li>
     </ul>
   )
 }

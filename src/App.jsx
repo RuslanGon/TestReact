@@ -9,6 +9,9 @@ import UkrPoshtaUser from './componetns/MailBox/ukrPoshta.json'
 
 function App() {
   
+  const HandleLogDrink = (drinkName) => {
+    console.log(drinkName);
+  }
 
   return (
     <div>
@@ -16,7 +19,7 @@ function App() {
     <MailBoxUser boxTitle='Nova Poshta' mailCounter={3} boxUsers={NovaPoshtasUser}  />
     <MailBoxUser boxTitle='Ukr Poshta' boxUsers={UkrPoshtaUser}  />
     <DrinksValue />
-    <DrinksCounter />
+    <DrinksCounter HandleLogDrink={HandleLogDrink} />
    
 
     </div>

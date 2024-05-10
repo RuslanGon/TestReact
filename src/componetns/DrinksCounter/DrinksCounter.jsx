@@ -1,11 +1,11 @@
 
 
-const DrinksCounter = () => {
+const DrinksCounter = ({HandleLogDrink}) => {
   return (
     <div>
-        <button>Beer</button>
-        <button>Whiskey</button>
-        <button>Wine</button>
+        <button onClick={() => HandleLogDrink('beer')}>Beer</button>
+        <button onClick={() => HandleLogDrink('whiskey')}>Whiskey</button>
+        <button onClick={() => HandleLogDrink('wine')}>Wine</button>
     </div>
   )
 }
