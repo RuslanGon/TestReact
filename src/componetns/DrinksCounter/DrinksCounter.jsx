@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 
 
-const DrinksCounter = ({HandleLogDrink, onTogleMiniBar}) => {
+const DrinksCounter = ({HandleLogDrink, onTogleMiniBar, handleReset, total}) => {
 
 useEffect(() => {
 const onKeyDown = (event)=> {
@@ -20,6 +20,7 @@ if(event.code === 'Escape'){
         <button onClick={() => HandleLogDrink('beer')}>Beer</button>
         <button onClick={() => HandleLogDrink('whiskey')}>Whiskey</button>
         <button onClick={() => HandleLogDrink('wine')}>Wine</button>
+        {total !== 0 && <button onClick={handleReset}>Reset</button>}
         
         
     </div>

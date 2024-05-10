@@ -42,6 +42,9 @@ useEffect(() => {
 localStorage.setItem('drinksValue', JSON.stringify(drinks))
 }, [drinks])
 
+const handleReset = () => {
+  setDrinks(initialDrinks)
+}
 
   return (
     <div>
@@ -64,7 +67,7 @@ localStorage.setItem('drinksValue', JSON.stringify(drinks))
       {isVisibl && (
         <>
           <DrinksValue drinks={drinks} total={total} />
-          <DrinksCounter HandleLogDrink={HandleLogDrink} onTogleMiniBar={onTogleMiniBar} />
+          <DrinksCounter HandleLogDrink={HandleLogDrink} onTogleMiniBar={onTogleMiniBar} handleReset={handleReset} total={total} />
         </>
       )}
     </div>
