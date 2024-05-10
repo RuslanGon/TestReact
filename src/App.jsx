@@ -9,10 +9,15 @@ import NovaPoshtasUser from './componetns/MailBox/novaPoshta.json'
 import UkrPoshtaUser from './componetns/MailBox/ukrPoshta.json'
 
 function App() {
-
+  const initialDrinks = { beer: 0, whiskey: 0, wine:0 }
   const [counter, setCounter] = useState(0)
-  const [drinks, setDrinks] = useState({ beer: 0, whiskey: 0, wine:0 })
   const [isVisibl, setIsVisibl] = useState(false)
+  const [drinks, setDrinks] = useState(() => {
+  const stringiDrinks = localStorage.getItem('drinksValue') 
+  const parseDrinks = JSON.parse(stringiDrinks) ?? {initialDrinks}
+  return parseDrinks
+  })
+  
 
   const onTogleMiniBar = () => {
     setIsVisibl(!isVisibl)
@@ -34,12 +39,8 @@ function App() {
 }
 
 useEffect(() => {
-  if(total === 0 ){
-console.log('App was mounten');
-  }else {
-console.log();
-  }
-}, [])
+localStorage.setItem('drinksValue', JSON.stringify(drinks))
+}, [drinks])
 
 
   return (
