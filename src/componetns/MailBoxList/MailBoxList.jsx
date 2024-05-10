@@ -1,10 +1,11 @@
+import MailBoxListItem from "../MailBoxListItem/MailBoxListItem"
 
 
 const MailBoxList = ({boxUsers}) => {
   return (
     <ul>
         {Array.isArray(boxUsers) && boxUsers.map(user => {
-            return <li key={user.id}>{user.userEmail}</li>
+            return <MailBoxListItem user={user} key={user.id} />
         })}
       </ul>
   )
