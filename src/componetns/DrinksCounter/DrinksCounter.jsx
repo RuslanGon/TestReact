@@ -13,7 +13,7 @@ if(event.code === 'Escape'){
   return () => {
     window.removeEventListener('keydown',onKeyDown)
   }
-}, [])
+}, [onTogleMiniBar])
 
   return (
     <div>
