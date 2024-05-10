@@ -14,7 +14,7 @@ function App() {
   const [drinks, setDrinks] = useState({ beer: 0, whiskey: 0, wine:0 })
 
   const HandleLogDrink = (drinkName) => {
-    if(drinks[drinkName] === 2 && drinkName === 'beer') return
+    if(drinks[drinkName] === 7 && drinkName === 'beer') return
     setDrinks({...drinks, [drinkName]: drinks[drinkName] + 1})
   }
 
