@@ -9,12 +9,17 @@ import NovaPoshtasUser from './componetns/MailBox/novaPoshta.json'
 import UkrPoshtaUser from './componetns/MailBox/ukrPoshta.json'
 
 function App() {
-  
-  const initialDrinks = { beer: 5, whiskey: 3, wine:1 }
 
   const [counter, setCounter] = useState(0)
-  
+  const [drinks, setDrinks] = useState({ beer: 0, whiskey: 0, wine:0 })
 
+  const HandleLogDrink = (drinkName) => {
+    if(drinks[drinkName] === 2 && drinkName === 'beer') return
+    setDrinks({...drinks, [drinkName]: drinks[drinkName] + 1})
+  }
+
+  const total = drinks.beer + drinks.whiskey + drinks.wine
+  
   const HandleIncrement = () => {
     setCounter(counter +1)
   }
@@ -23,20 +28,14 @@ function App() {
     setCounter(counter -1)
 }
 
-
-  const HandleLogDrink = (drinkName) => {
-    
-    console.log(drinkName);
-  }
-
   return (
     <div>
     <MailBoxUser boxTitle='Meest Express' mailCounter={5} boxUsers={MeetExspressUser} />
     <MailBoxUser boxTitle='Nova Poshta' mailCounter={3} boxUsers={NovaPoshtasUser}  />
     <MailBoxUser boxTitle='Ukr Poshta' boxUsers={UkrPoshtaUser}  />
     <button onClick={HandleIncrement}>Counter {counter}</button>
-    <button onClick={HandleDecrement}>Decrement</button>
-    <DrinksValue drinks={initialDrinks} />
+    <button onClick={HandleDecrement}>-min</button>
+    <DrinksValue drinks={drinks} total={total}/>
     <DrinksCounter HandleLogDrink={HandleLogDrink} />
    
 
