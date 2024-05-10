@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import DrinksCounter from './componetns/DrinksCounter/DrinksCounter'
 import DrinksValue from './componetns/DrinksValue/DrinksValue'
@@ -33,6 +33,13 @@ function App() {
     setCounter(counter -1)
 }
 
+useEffect(() => {
+  if(total === 0 ){
+console.log('App was mounten');
+  }else {
+console.log();
+  }
+}, [])
 
 
   return (
@@ -56,7 +63,7 @@ function App() {
       {isVisibl && (
         <>
           <DrinksValue drinks={drinks} total={total} />
-          <DrinksCounter HandleLogDrink={HandleLogDrink} />
+          <DrinksCounter HandleLogDrink={HandleLogDrink} onTogleMiniBar={onTogleMiniBar} />
         </>
       )}
     </div>

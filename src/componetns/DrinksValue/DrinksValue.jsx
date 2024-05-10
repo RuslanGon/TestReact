@@ -1,6 +1,9 @@
 
 
+
 const DrinksValue = ({drinks, total}) => {
+
+
   return (
     <ul>
         <li>Beer: {drinks.beer}</li>
