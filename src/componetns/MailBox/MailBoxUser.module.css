@@ -1,0 +1,10 @@
+.title {
+  font-size: 26px;
+}
+
+.mailbox {
+    border: 1px solid red;
+    padding: 10px 10px;
+    border-radius: 7px;
+}
+

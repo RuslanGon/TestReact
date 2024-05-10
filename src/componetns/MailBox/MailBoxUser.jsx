@@ -1,16 +1,18 @@
-const MailBoxUser = ({ boxTitle, MailCounter = 0 }) => {
+import css from '../MailBox/MailBoxUser.module.css'
+
+const MailBoxUser = ({ boxTitle, mailCounter = 0,boxUsers  }) => {
   return (
-    <div>
-      <h2>{boxTitle}</h2>
-      {MailCounter === 0 ? (
-        <p>К сожилению сейчас нет активных ячеек</p>
+    <div className={css.mailbox}>
+      <h2 className={css.title}>{boxTitle}</h2>
+      {mailCounter === 0 ? (
+        <p><b>К сожилению сейчас нет активных ячеек</b></p>
       ) : (
-        <p>Количество активных ячеек {MailCounter}</p>
+        <p>Количество активных ячеек {mailCounter}</p>
       )}
       <ul>
-        <li>Ruslan@gmail.com</li>
-        <li>Lena@gmail.com</li>
-        <li>Igor@gmail.com</li>
+        {Array.isArray(boxUsers) && boxUsers.map(user => {
+            return <li key={user.id}>{user.userEmail}</li>
+        })}
       </ul>
     </div>
   );
