@@ -1,7 +1,12 @@
-const MailBoxUser = ({MailBoxTitle}) => {
+const MailBoxUser = ({ boxTitle, MailCounter = 0 }) => {
   return (
     <div>
-      <h2>{MailBoxTitle}</h2>
+      <h2>{boxTitle}</h2>
+      {MailCounter === 0 ? (
+        <p>К сожилению сейчас нет активных ячеек</p>
+      ) : (
+        <p>Количество активных ячеек {MailCounter}</p>
+      )}
       <ul>
         <li>Ruslan@gmail.com</li>
         <li>Lena@gmail.com</li>

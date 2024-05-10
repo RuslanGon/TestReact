@@ -8,7 +8,9 @@ function App() {
 
   return (
     <div>
-    <MailBoxUser />
+    <MailBoxUser boxTitle='Meest Express' MailCounter={5} />
+    <MailBoxUser boxTitle='Nova Poshta' MailCounter={3} />
+    <MailBoxUser boxTitle='Ukr Poshta' />
 
     </div>
   )
