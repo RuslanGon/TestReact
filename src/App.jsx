@@ -12,6 +12,11 @@ function App() {
 
   const [counter, setCounter] = useState(0)
   const [drinks, setDrinks] = useState({ beer: 0, whiskey: 0, wine:0 })
+  const [isVisibl, setIsVisibl] = useState(false)
+
+  const onTogleMiniBar = () => {
+    setIsVisibl(!isVisibl)
+  }
 
   const HandleLogDrink = (drinkName) => {
     if(drinks[drinkName] === 7 && drinkName === 'beer') return
@@ -32,17 +37,30 @@ function App() {
 
   return (
     <div>
-    <MailBoxUser boxTitle='Meest Express' mailCounter={5} boxUsers={MeetExspressUser} />
-    <MailBoxUser boxTitle='Nova Poshta' mailCounter={3} boxUsers={NovaPoshtasUser}  />
-    <MailBoxUser boxTitle='Ukr Poshta' boxUsers={UkrPoshtaUser}  />
-    <button onClick={HandleIncrement}>Counter {counter}</button>
-    <button onClick={HandleDecrement}>-min</button>
-    <DrinksValue drinks={drinks} total={total}/>
-    <DrinksCounter HandleLogDrink={HandleLogDrink} />
-   
-
+      <MailBoxUser
+        boxTitle="Meest Express"
+        mailCounter={5}
+        boxUsers={MeetExspressUser}
+      />
+      <MailBoxUser
+        boxTitle="Nova Poshta"
+        mailCounter={3}
+        boxUsers={NovaPoshtasUser}
+      />
+      <MailBoxUser boxTitle="Ukr Poshta" boxUsers={UkrPoshtaUser} />
+      <button onClick={HandleIncrement}>Counter {counter}</button>
+      <button onClick={HandleDecrement}>-min</button>
+      <br />
+      <button onClick={onTogleMiniBar}>{isVisibl ? 'Hide' : "Shom"} mini-bar</button>
+      
+      {isVisibl && (
+        <>
+          <DrinksValue drinks={drinks} total={total} />
+          <DrinksCounter HandleLogDrink={HandleLogDrink} />
+        </>
+      )}
     </div>
-  )
+  );
 }
 
 export default App
