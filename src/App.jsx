@@ -11,6 +11,7 @@ import Loader from "./components/Loader/Loader.jsx";
 // import NotFoundPage from './pages/NotFoundPage .jsx';
 // import ProductDetailsPage from './pages/ProductDetailsPage.jsx';
 
+
 const MailboxPage = lazy(() => import("./pages/MailboxPage.jsx"));
 const ProductsPage = lazy(() => import("./pages/ProductsPage.jsx"));
 const SearchPage = lazy(() => import("./pages/SearchPage.jsx"));
