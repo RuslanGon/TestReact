@@ -5,7 +5,7 @@ import MailBox from '../components/MailBox/MailBox.jsx'
 import { useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import MAilBoxForm from '../components/MailBoxForm/MAilBoxForm.jsx';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function MailboxPage() {
   // const [filter, setFilter] = useState('')
@@ -16,9 +16,11 @@ function MailboxPage() {
   //   return parseUsers
   // })
 
- const users = useSelector((state) => {return state.mailbox.users})
+  const dispatch = useDispatch()
 
- const filter = useSelector((state) => {return state.mailbox.filter})
+ const users = useSelector(state => state.mailbox.users)
+
+ const filter = useSelector(state => state.mailbox.filter)
 
 
   useEffect(() => {
@@ -30,9 +32,11 @@ function MailboxPage() {
       ...formData,
       id: nanoid(),
     };
+    const action = { type: 'mailbox/ADD_USER', payload: finalUser}
+    dispatch(action)
 
     // setUsers([...users, finalUser]);
-     setUsers((prevState) => [...prevState, finalUser])
+    //  setUsers((prevState) => [...prevState, finalUser])
   };
 
   const onDeleteUser = (userId) => {
