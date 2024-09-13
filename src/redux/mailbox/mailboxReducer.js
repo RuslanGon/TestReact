@@ -26,6 +26,7 @@ const INITIAL_STATE = {
   // Генератори екшенів
   export const { addUser, deleteUser, setFilter } = mailboxSlice.actions;
   
+  
   // Редюсер слайсу
   export const mailboxReducer = mailboxSlice.reducer;
 
