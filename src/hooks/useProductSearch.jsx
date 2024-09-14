@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { requestProducts, requestProductsByQuery } from "../services/api.js";
+import { useEffect, useState} from "react";
+import {  requestProductsByQuery } from "../services/api.js";
 import { useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { apiGetProducts } from "../redux/productDetails/operations.js";
@@ -7,8 +7,8 @@ import { apiGetProducts } from "../redux/productDetails/operations.js";
 export const useProductSearch = ({isSearchPage = false}) => {
 
     // const [products, setProducts] = useState(null);
-    // const [isLoading, setIsLoading] = useState(false);
-    // const [isError, setIsError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
     // const [query, setQuery] = useState('')
 
     const [searchParams, setSearchParams] = useSearchParams()
@@ -16,8 +16,8 @@ export const useProductSearch = ({isSearchPage = false}) => {
 
 const dispatch = useDispatch()
 const products = useSelector(state => state.productDetails.products)
-const isLoading = useSelector(state => state.productDetails.isLoading)
-const isError = useSelector(state => state.productDetails.isError)
+// const isLoading = useSelector(state => state.productDetails.isLoading)
+// const isError = useSelector(state => state.productDetails.isError)
 
   
     useEffect(() => {
