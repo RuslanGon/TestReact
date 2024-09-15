@@ -2,12 +2,12 @@
 import '../App.css'
 import MailBox from '../components/MailBox/MailBox.jsx'
 // import MeestExpress from '../../meest.json'
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import MAilBoxForm from '../components/MailBoxForm/MAilBoxForm.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser, deleteUser } from '../redux/mailbox/mailboxReducer.js';
-import { selectFilter, selectUsers } from '../redux/mailbox/selectors.js';
+import { selectFilteredUsers, selectUsers } from '../redux/mailbox/selectors.js';
 import MailboxFilter from '../components/MailboxFilter/MailboxFilter.jsx';
 
 function MailboxPage() {
@@ -23,7 +23,7 @@ function MailboxPage() {
 
  const users = useSelector(selectUsers)
 
- const filter = useSelector(selectFilter)
+//  const filter = useSelector(selectFilter)
 
 
   useEffect(() => {
@@ -54,14 +54,16 @@ function MailboxPage() {
   //   user.userEmail.toLowerCase().includes(filter.toLowerCase())
   // );
 
-    const filteredUsers = useMemo(() => {
-      return users.filter((user) => {
-        return (
-          user.userName.toLowerCase().includes(filter.toLowerCase()) ||
-          user.userEmail.toLowerCase().includes(filter.toLowerCase())
-        );
-      });
-    }, [users, filter]); 
+    // const filteredUsers = useMemo(() => {
+    //   return users.filter((user) => {
+    //     return (
+    //       user.userName.toLowerCase().includes(filter.toLowerCase()) ||
+    //       user.userEmail.toLowerCase().includes(filter.toLowerCase())
+    //     );
+    //   });
+    // }, [users, filter]); 
+
+const filteredUsers = useSelector(selectFilteredUsers)
 
   return (
     <div>
