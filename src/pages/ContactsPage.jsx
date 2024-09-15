@@ -9,17 +9,15 @@ const ContactsPage = () => {
   const loadData = () => {
     try {
       setIsLoading(true);
-      // Имитация загрузки данных
       setTimeout(() => {
-        setIsLoading(false); // Успешная загрузка
-      }, 1000); // Задержка в 1 секунду для примера
+        setIsLoading(false);
+      }, 1000);
     } catch (error) {
       setIsError(true);
       console.log(error);
-    }
+    } 
   };
 
-  // Вызов функции loadData только при монтировании компонента
   useEffect(() => {
     loadData();
   }, []);
