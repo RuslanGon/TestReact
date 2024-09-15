@@ -13,6 +13,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { productDetailsReducer } from "./productDetails/productDetaiilsSlice.js";
+import { authReducer } from "./auth/authSlice.js";
 
 const mailboxPersistConfig = {
   key: 'mailbox',
@@ -23,7 +24,8 @@ const mailboxPersistConfig = {
 export const store = configureStore({
     reducer: { 
       mailbox: persistReducer(mailboxPersistConfig, mailboxReducer),
-      productDetails: productDetailsReducer
+      productDetails: productDetailsReducer,
+      auth: authReducer
     },
     middleware: getDefaultMiddleware =>
       getDefaultMiddleware({
