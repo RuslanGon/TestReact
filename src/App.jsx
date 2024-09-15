@@ -3,6 +3,9 @@ import css from "./App.module.css";
 import clsx from "clsx";
 import { Suspense, lazy } from "react";
 import Loader from "./components/Loader/Loader.jsx";
+import RegistrationPage from "./pages/RegistrationPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import ContactsPage from "./pages/ContactsPage.jsx";
 
 // import MailboxPage from './pages/MailboxPage.jsx';
 // import ProductsPage from './pages/ProductsPage.jsx';
@@ -33,6 +36,15 @@ const App = () => {
           <NavLink className={getNavLinkClassName} to="/">
             Home Page
           </NavLink>
+          <NavLink className={getNavLinkClassName} to="/register">
+            Registration Page
+          </NavLink>
+          <NavLink className={getNavLinkClassName} to="/login">
+            Login Page
+          </NavLink>
+          <NavLink className={getNavLinkClassName} to="/contacts">
+          Contacts Page
+          </NavLink>
           <NavLink className={getNavLinkClassName} to="/mailbox">
             MailBox
           </NavLink>
@@ -48,6 +60,9 @@ const App = () => {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/register" element={<RegistrationPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/contacts" element={<ContactsPage />} />
             <Route path="/mailbox" element={<MailboxPage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route
