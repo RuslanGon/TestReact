@@ -28,7 +28,6 @@ const LoginPage = () => {
     >
       <Form>
         <h2>Login user</h2>
-        <br />
         <label>
           <span>email:</span>
           <br />
