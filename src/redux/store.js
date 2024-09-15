@@ -21,11 +21,17 @@ const mailboxPersistConfig = {
   whitelist: ['users'], 
 };
 
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'], 
+};
+
 export const store = configureStore({
     reducer: { 
       mailbox: persistReducer(mailboxPersistConfig, mailboxReducer),
       productDetails: productDetailsReducer,
-      auth: authReducer
+      auth: persistReducer (authPersistConfig, authReducer)
     },
     middleware: getDefaultMiddleware =>
       getDefaultMiddleware({

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { apiLogin, apiRegistor } from "./operations.js";
+import { apiLogin, apiRefreshUser, apiRegistor } from "./operations.js";
 
 const INITIAL_STATE = {
    isSignedIn: false,
@@ -41,6 +41,21 @@ const INITIAL_STATE = {
             state.token = action.payload.token
           })
           .addCase(apiLogin.rejected, (state) => {
+            state.isLoading = false;
+            state.isError = true;
+          })
+
+
+          .addCase(apiRefreshUser.pending, (state) => {
+            state.isLoading = true;
+            state.isError = false;
+          })
+          .addCase(apiRefreshUser.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.isSignedIn = true;
+            state.userData = action.payload
+          })
+          .addCase(apiRefreshUser.rejected, (state) => {
             state.isLoading = false;
             state.isError = true;
           })

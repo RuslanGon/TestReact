@@ -1,7 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import Loader from "./components/Loader/Loader.jsx";
 import Layout from "./components/Layout/Layout.jsx";
+import { useDispatch } from "react-redux";
+import { apiRefreshUser } from "./redux/auth/operations.js";
 // import RegistrationPage from "./pages/RegistrationPage.jsx";
 // import LoginPage from "./pages/LoginPage.jsx";
 // import ContactsPage from "./pages/ContactsPage.jsx";
@@ -24,9 +26,13 @@ const RegistrationPage = lazy(() => import('./pages/RegistrationPage.jsx'));
 const LoginPage = lazy(() => import("./pages/LoginPage.jsx"));
 const ContactsPage = lazy(() => import("./pages/ContactsPage.jsx"));
 
-
-
 const App = () => {
+
+const dispatch = useDispatch()
+useEffect(() => {
+  dispatch(apiRefreshUser())
+}, [dispatch])
+
   return (
     <Layout>
         <Suspense fallback={<Loader />}>
