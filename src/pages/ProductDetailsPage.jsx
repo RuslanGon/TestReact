@@ -4,6 +4,7 @@ import Loader from "../components/Loader/Loader.jsx";
 import { Error } from "../components/Error/Error.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { apiRequestProductDetailsById } from "../redux/productDetails/operations.js";
+import { selectIsError, selectIsLoading, selectProductDetails } from "../redux/productDetails/selectors.js";
 // import CommentPage from "./CommentPage.jsx";
 // import ReviewsPage from "./ReviewsPage.jsx";
 
@@ -23,9 +24,9 @@ const ProductDetailsPage = () => {
 
   const dispatch = useDispatch()
 
-const productDetails = useSelector(state => state.productDetails.productDetails)
-const isLoading = useSelector(state => state.productDetails.isLoading)
-const isError = useSelector(state => state.productDetails.isError)
+const productDetails = useSelector(selectProductDetails)
+const isLoading = useSelector(selectIsLoading)
+const isError = useSelector(selectIsError)
 
 useEffect(() => {
 dispatch(apiRequestProductDetailsById(productId))

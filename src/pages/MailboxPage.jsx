@@ -7,6 +7,8 @@ import { nanoid } from 'nanoid';
 import MAilBoxForm from '../components/MailBoxForm/MAilBoxForm.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser, deleteUser, setFilter } from '../redux/mailbox/mailboxReducer.js';
+import { selectFilter, selectUsers } from '../redux/mailbox/selectors.js';
+import MailboxFilter from '../components/MailboxFilter/MailboxFilter.jsx';
 
 function MailboxPage() {
   // const [filter, setFilter] = useState('')
@@ -19,9 +21,9 @@ function MailboxPage() {
 
   const dispatch = useDispatch()
 
- const users = useSelector(state => state.mailbox.users)
+ const users = useSelector(selectUsers)
 
- const filter = useSelector(state => state.mailbox.filter)
+ const filter = useSelector(selectFilter)
 
 
   useEffect(() => {
@@ -62,8 +64,7 @@ function MailboxPage() {
     <div>
       <MAilBoxForm onAddUsers={onAddUsers} />
       <section>
-        <h3>Search user by name or emaile</h3>
-        <input  type="text" placeholder='🔍  search...' value={filter} onChange={onChangeFilter} />
+       <MailboxFilter filter={filter} onChangeFilter={onChangeFilter}  />
       </section>
       <br />
       <MailBox boxUser={filteredUsers} boxTitle="Meest Express" onDeleteUser={onDeleteUser}  />   
