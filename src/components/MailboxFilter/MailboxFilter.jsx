@@ -7,11 +7,10 @@ const MailboxFilter = () => {
  const filter = useSelector(selectFilter)
 
  const onChangeFilter = (event) => {
+   dispatch(setFilter(event.target.value));
+ };
 
-    dispatch(setFilter(event.target.value))
-
-  }
-
+ 
   return (
     <section>
       <h3>Search user by name or emaile</h3>
