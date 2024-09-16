@@ -21,10 +21,10 @@ export const apiGetContacts = createAsyncThunk(
 })
 
 export const apiAddContacts = createAsyncThunk(
-    "contacts/getAll", 
-    async (_, thunkApi) => {
+    "contacts/addNew", 
+    async (formData, thunkApi) => {
         try {
-            const { data } = await instance.get('/contacts')
+            const { data } = await instance.post('/contacts',formData)
             console.log(data);
             return data
         } catch (error) {

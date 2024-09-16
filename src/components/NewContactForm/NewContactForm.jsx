@@ -10,7 +10,7 @@ const addContactsSchema = Yup.object({
 
 const FORM_INITIAL_VALUES = {
   name: "",
-  namber: "",
+  number: "",
 };
 
 const NewContactForm = () => {

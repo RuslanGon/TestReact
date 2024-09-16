@@ -4,6 +4,7 @@ import { apiGetContacts } from "../redux/contacts/operations.js";
 import { selectContacts, selectContactsIsError, selectContactsIsLoading } from "../redux/contacts/selectors.js";
 import Loader from "../components/Loader/Loader.jsx";
 import { Error } from "../components/Error/Error.jsx";
+import NewContactForm from "../components/NewContactForm/NewContactForm.jsx";
 
 const ContactsPage = () => {
 
@@ -19,6 +20,7 @@ const ContactsPage = () => {
 
   return (
     <div>
+      <NewContactForm />
       {isLoading && <Loader />}
       {isError && <Error />}
       <ul>
