@@ -41,12 +41,12 @@ useEffect(() => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/register" element={<RestrictedRoute> <RegistrationPage /> </RestrictedRoute>} />
-            <Route path="/login" element={<RestrictedRoute> <LoginPage /></RestrictedRoute> } />
-            <Route path="/contacts" element={<PrivateRoute><ContactsPage /> </PrivateRoute>} />
-            <Route path="/mailbox" element={<PrivateRoute> <MailboxPage /> </PrivateRoute>} />
-            <Route path="/products" element={<PrivateRoute><ProductsPage /> </PrivateRoute>} />
+            <Route path="/login" element={<RestrictedRoute><LoginPage /></RestrictedRoute> } />
+            <Route path="/contacts" element={<PrivateRoute><ContactsPage /></PrivateRoute>} />
+            <Route path="/mailbox" element={<PrivateRoute><MailboxPage /></PrivateRoute>} />
+            <Route path="/products" element={<PrivateRoute><ProductsPage /></PrivateRoute>} />
             <Route path="/products/:productId/*" element={<PrivateRoute><ProductDetailsPage /> </PrivateRoute> }/>
-            <Route path="/search" element={<PrivateRoute> <SearchPage /> </PrivateRoute>} />
+            <Route path="/search" element={<PrivateRoute><SearchPage /></PrivateRoute>} />
             <Route path="*" element={ <NotFoundPage />} />
           </Routes>
         </Suspense>
