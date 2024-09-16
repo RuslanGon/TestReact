@@ -9,14 +9,25 @@ export const instance = axios.create({
 })  
 
 export const apiGetContacts = createAsyncThunk(
-  "contacts/getAll",
-  async (_, thunkApi) => {
-    try {
-      const { data } = await instance.get("/contacts");
-      console.log(data);
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
-    }
-  }
-);
+    "contacts/getAll", 
+    async (_, thunkApi) => {
+        try {
+            const { data } = await instance.get('/contacts')
+            console.log(data);
+            return data
+        } catch (error) {
+          return thunkApi.rejectWithValue(error.message);
+        }
+})
+
+export const apiAddContacts = createAsyncThunk(
+    "contacts/getAll", 
+    async (_, thunkApi) => {
+        try {
+            const { data } = await instance.get('/contacts')
+            console.log(data);
+            return data
+        } catch (error) {
+          return thunkApi.rejectWithValue(error.message);
+        }
+})
