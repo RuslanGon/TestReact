@@ -21,13 +21,27 @@ export const apiGetContacts = createAsyncThunk(
 })
 
 export const apiAddContacts = createAsyncThunk(
-    "contacts/addNew", 
+    "contacts/addNew",
     async (formData, thunkApi) => {
-        try {
-            const { data } = await instance.post('/contacts',formData)
-            console.log(data);
-            return data
-        } catch (error) {
-          return thunkApi.rejectWithValue(error.message);
-        }
-})
+      try {
+        const {data} = await instance.post('/contacts', formData);
+        // console.log(data);
+        return data;
+      } catch (error) {
+        return thunkApi.rejectWithValue(error.message);
+      }
+    }
+)
+
+export const apiDeleteContact = createAsyncThunk(
+    'contacts/delete',
+    async (contactId, thunkAPI) => {
+      try {
+        const { data } = await instance.delete(`/contacts/${contactId}`);
+        // console.log(data);
+        return data;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  );
