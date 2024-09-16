@@ -4,6 +4,8 @@ import Loader from "./components/Loader/Loader.jsx";
 import Layout from "./components/Layout/Layout.jsx";
 import { useDispatch } from "react-redux";
 import { apiRefreshUser } from "./redux/auth/operations.js";
+import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute.jsx";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 // import RegistrationPage from "./pages/RegistrationPage.jsx";
 // import LoginPage from "./pages/LoginPage.jsx";
 // import ContactsPage from "./pages/ContactsPage.jsx";
@@ -38,14 +40,14 @@ useEffect(() => {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/register" element={<RegistrationPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/contacts" element={<ContactsPage />} />
-            <Route path="/mailbox" element={<MailboxPage />} />
-            <Route path="/products" element={<ProductsPage />} />
-            <Route path="/products/:productId/*" element={<ProductDetailsPage />}/>
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route path="/register" element={<RestrictedRoute> <RegistrationPage /> </RestrictedRoute>} />
+            <Route path="/login" element={<RestrictedRoute> <LoginPage /></RestrictedRoute> } />
+            <Route path="/contacts" element={<PrivateRoute><ContactsPage /> </PrivateRoute>} />
+            <Route path="/mailbox" element={<PrivateRoute> <MailboxPage /> </PrivateRoute>} />
+            <Route path="/products" element={<PrivateRoute><ProductsPage /> </PrivateRoute>} />
+            <Route path="/products/:productId/*" element={<PrivateRoute><ProductDetailsPage /> </PrivateRoute> }/>
+            <Route path="/search" element={<PrivateRoute> <SearchPage /> </PrivateRoute>} />
+            <Route path="*" element={ <NotFoundPage />} />
           </Routes>
         </Suspense>
         </Layout>
