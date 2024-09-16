@@ -35,7 +35,7 @@ const ContactsPage = () => {
             <li key={item.id}>
               <h3>
                 Name: {item.name}{" "}
-                <button onClick={onDeleteContact} type="button">
+                <button onClick={() => {onDeleteContact(item.id)}} type="button">
                   delete contact 🎈
                 </button>
               </h3>
