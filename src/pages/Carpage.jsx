@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Loader from "../components/Loader/Loader.jsx";
 import { Error } from "../components/Error/Error.jsx";
 import CarList from "../components/CarList/CarList.jsx";
+import SearchFormCar from "../components/SearchFormCar/SearchFormCar.jsx";
 
 const CarPage = () => {
 
@@ -29,6 +30,7 @@ useEffect(() => {
   return (
     <div>
       <h1>Campers</h1>
+      <SearchFormCar />
       {loading && <Loader/>}
       {error && <Error />}
      <CarList cars={cars} />
