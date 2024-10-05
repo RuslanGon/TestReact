@@ -15,6 +15,7 @@ import {
 import { productDetailsReducer } from "./productDetails/productDetaiilsSlice.js";
 import { authReducer } from "./auth/authSlice.js";
 import { contactsReducer } from "./contacts/contactsSlice.js";
+import { carsReducer } from "./cars/authSlice.js";
 
 const mailboxPersistConfig = {
   key: 'mailbox',
@@ -33,7 +34,8 @@ export const store = configureStore({
       mailbox: persistReducer(mailboxPersistConfig, mailboxReducer),
       productDetails: productDetailsReducer,
       auth: persistReducer (authPersistConfig, authReducer),
-      contacts: contactsReducer
+      contacts: contactsReducer,
+      cars: carsReducer
     },
     middleware: getDefaultMiddleware =>
       getDefaultMiddleware({
