@@ -24,7 +24,7 @@ const carsSlice = createSlice({
             })
             .addCase(apiRequestCars.fulfilled, (state, action) => {
                 state.loading = false;
-                state.cars = action.payload.cars
+                state.cars = action.payload.items
             })
             .addCase(apiRequestCars.rejected, (state) => {
                 state.loading = false;
