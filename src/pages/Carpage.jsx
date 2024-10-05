@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader/Loader.jsx";
 import { Error } from "../components/Error/Error.jsx";
+import CarList from "../components/CarList/CarList.jsx";
 
 const CarPage = () => {
 
@@ -30,18 +31,7 @@ useEffect(() => {
       <h1>Campers</h1>
       {loading && <Loader/>}
       {error && <Error />}
-      <ul>
-     {Array.isArray(cars) && cars.map(car => {
-      return (<li key={car.id}>
-        <img width={550} height={250} src={car.gallery[0]?.original} alt={car.name} />
-        <h2>Name: {car.name}</h2>
-        <h3>Price: {car.price}</h3>
-        <p>Rating: {car.rating}</p>
-        <p>Location: {car.location}</p>
-        <p>Form: {car.form}</p>
-      </li>)
-     }) }
-      </ul>
+     <CarList cars={cars} />
     </div>
   );
 };
