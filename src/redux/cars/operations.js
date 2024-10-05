@@ -13,7 +13,6 @@ export const apiRequestCars = createAsyncThunk(
   }
 );
 
-
 export const apiCarsByQuery = createAsyncThunk(
     "cars/query",
     async (query, thunkApi) => {
@@ -24,4 +23,4 @@ export const apiCarsByQuery = createAsyncThunk(
         return thunkApi.rejectWithValue(error.message);
       }
     }
-  );
+);

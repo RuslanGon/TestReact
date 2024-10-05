@@ -1,39 +1,23 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import { useState } from "react";
 
+const SearchFormCar = ({ searchQueryCar }) => {
+  const [searchTerm, setSearchTerm] = useState('');
 
-const carSchema = Yup.object({
-    searchTerm: Yup.string().required("name car is required"),
-});
-
-
-const FORM_INITIAL_VALUES = {
-  searchTerm: "",
-};
-
-const SearchFormCar = ({searchQueryCar}) => {
-  const handleSubmit = (values, actions) => {
-    // console.log(values);
-    searchQueryCar(values.searchTerm)
-    actions.resetForm();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    searchQueryCar(searchTerm); 
   };
 
   return (
-    <Formik
-      initialValues={FORM_INITIAL_VALUES}
-      onSubmit={handleSubmit}
-      validationSchema={carSchema}>
-      <Form>
-        <label>
-          <span>Search car:</span>
-          <br />
-          <Field type="text" name="searchTerm" placeholder="search" />
-          <ErrorMessage name="searchTerm" component="span" />
-        </label>
-        <br />
-      <button type="submit">Search car 🚌</button>
-      </Form>
-    </Formik>
+    <form onSubmit={handleSubmit}>
+      <input 
+        type="text" 
+        value={searchTerm} 
+        onChange={(e) => setSearchTerm(e.target.value)} 
+        placeholder="Search for cars"
+      />
+      <button type="submit">Search</button>
+    </form>
   );
 };
 
