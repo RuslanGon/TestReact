@@ -15,7 +15,7 @@ export const apiRequestCars = createAsyncThunk(
 
 
 export const apiCarsByQuery = createAsyncThunk(
-    "cars/getCars",
+    "cars/query",
     async (query, thunkApi) => {
       try {
         const data = await requestCarsByQuery(query);
