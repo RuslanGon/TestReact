@@ -51,7 +51,7 @@ useEffect(() => {
             <Route path="/products/:productId/*" element={<PrivateRoute><ProductDetailsPage /> 
             </PrivateRoute> }/>
             <Route path="/search" element={<PrivateRoute><SearchPage /></PrivateRoute>} />
-            <Route path="/car" element={<PrivateRoute><CarPage /></PrivateRoute>} />
+            <Route path="/campers" element={<PrivateRoute><CarPage /></PrivateRoute>} />
 
             <Route path="*" element={ <NotFoundPage />} />
           </Routes>

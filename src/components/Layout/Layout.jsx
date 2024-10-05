@@ -43,8 +43,8 @@ dispatch(apiLogout())
               <NavLink className={getNavLinkClassName} to="/search">
                 Search
               </NavLink>
-              <NavLink className={getNavLinkClassName} to="/car">
-                Car
+              <NavLink className={getNavLinkClassName} to="/campers">
+              Campers
               </NavLink>
               <div>
                 <span>Hello {userData.name}</span>
