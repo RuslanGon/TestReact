@@ -11,9 +11,10 @@ const FORM_INITIAL_VALUES = {
   searchTerm: "",
 };
 
-const SearchFormCar = () => {
+const SearchFormCar = ({searchQueryCar}) => {
   const handleSubmit = (values, actions) => {
-    console.log(values);
+    // console.log(values);
+    searchQueryCar(values)
     actions.resetForm();
   };
 

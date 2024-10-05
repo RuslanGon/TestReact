@@ -10,6 +10,7 @@ const CarPage = () => {
 const [cars, setCars] = useState(null)
 const [loading, setLoading] = useState(false);
 const [error, setError] = useState(false)
+const [query, setQuery] = useState('')
 
 useEffect(() => {
   async function fetchCars() {
@@ -27,10 +28,14 @@ useEffect(() => {
   fetchCars();
 }, []);
 
+const searchQueryCar = (searchTerm) => {
+setQuery(searchTerm)
+}
+
   return (
     <div>
       <h1>Campers</h1>
-      <SearchFormCar />
+      <SearchFormCar searchQueryCar={searchQueryCar} />
       {loading && <Loader/>}
       {error && <Error />}
      <CarList cars={cars} />
