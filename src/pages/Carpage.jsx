@@ -1,10 +1,10 @@
-import axios from "axios";
+
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader/Loader.jsx";
 import { Error } from "../components/Error/Error.jsx";
 import CarList from "../components/CarList/CarList.jsx";
 import SearchFormCar from "../components/SearchFormCar/SearchFormCar.jsx";
-import { requestCars } from "../servicesCar/api.js";
+import { requestCars, requestCarsByQuery } from "../servicesCar/api.js";
 
 const CarPage = () => {
 
@@ -30,22 +30,22 @@ useEffect(() => {
   fetchCars();
 }, []);
 
-// useEffect(() => {
-//   if (query.length === 0) return;
-//   async function fetchCars() {
-//     try {
-//       setLoading(true);
-//       const data = await requestCars();
-//       setCars(data.items);
-//     } catch (error) {
-//       console.log(error);
-//       setError(true);
-//     } finally {
-//       setLoading(false);
-//     }
-//   }
-//   fetchCars();
-// }, [query]);
+useEffect(() => {
+  if (query.length === 0) return;
+  async function fetchCarsByQuery() {
+    try {
+      setLoading(true);
+      const data = await requestCarsByQuery(query);
+      setCars(data.items);
+    } catch (error) {
+      console.log(error);
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  }
+  fetchCarsByQuery();
+}, [query]);
 
 const searchQueryCar = (searchTerm) => {
 setQuery(searchTerm)
