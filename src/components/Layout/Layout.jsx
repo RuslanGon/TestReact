@@ -43,6 +43,9 @@ dispatch(apiLogout())
               <NavLink className={getNavLinkClassName} to="/search">
                 Search
               </NavLink>
+              <NavLink className={getNavLinkClassName} to="/car">
+                Car
+              </NavLink>
               <div>
                 <span>Hello {userData.name}</span>
                 <button type="button" onClick={onLogout}>Logout</button>

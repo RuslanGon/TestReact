@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { apiRefreshUser } from "./redux/auth/operations.js";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute.jsx";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
+// import CarPage from "./pages/Carpage.jsx";
 // import RegistrationPage from "./pages/RegistrationPage.jsx";
 // import LoginPage from "./pages/LoginPage.jsx";
 // import ContactsPage from "./pages/ContactsPage.jsx";
@@ -27,6 +28,8 @@ const ProductDetailsPage = lazy(() => import("./pages/ProductDetailsPage.jsx"));
 const RegistrationPage = lazy(() => import('./pages/RegistrationPage.jsx'));
 const LoginPage = lazy(() => import("./pages/LoginPage.jsx"));
 const ContactsPage = lazy(() => import("./pages/ContactsPage.jsx"));
+const CarPage = lazy(() => import("./pages/Carpage.jsx"));
+
 
 const App = () => {
 
@@ -48,6 +51,8 @@ useEffect(() => {
             <Route path="/products/:productId/*" element={<PrivateRoute><ProductDetailsPage /> 
             </PrivateRoute> }/>
             <Route path="/search" element={<PrivateRoute><SearchPage /></PrivateRoute>} />
+            <Route path="/car" element={<PrivateRoute><CarPage /></PrivateRoute>} />
+
             <Route path="*" element={ <NotFoundPage />} />
           </Routes>
         </Suspense>
