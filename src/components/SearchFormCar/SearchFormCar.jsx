@@ -16,6 +16,7 @@ const SearchFormCar = ({ searchQueryCar }) => {
         onChange={(e) => setSearchTerm(e.target.value)} 
         placeholder="Search for cars"
       />
+      <br />
       <button type="submit">Search</button>
     </form>
   );

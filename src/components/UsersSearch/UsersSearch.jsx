@@ -26,7 +26,6 @@ const UsersSearch = ({ searchUser }) => {
       <Form>
         <h2>Search user</h2>
         <label>
-          <span>User email:</span>
           <br />
           <Field type="text" name="name" placeholder="search" />
           <ErrorMessage name="name" component="span" />

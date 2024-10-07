@@ -4,20 +4,19 @@ import Loader from "../components/Loader/Loader.jsx";
 import { Error } from "../components/Error/Error.jsx";
 import Users from "../components/Users/Users.jsx";
 import UsersSearch from "../components/UsersSearch/UsersSearch.jsx";
+import { Link } from "react-router-dom";
 
 const UsersPage = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [query, setQuery] = useState('')
-  console.log(query);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     async function fetchUsers() {
       try {
         setLoading(true);
         const { data } = await axios.get("https://dummyjson.com/users");
-        // console.log(data);
         setUsers(data.users);
       } catch (error) {
         console.log(error);
@@ -29,13 +28,14 @@ const UsersPage = () => {
     fetchUsers();
   }, []);
 
-
   useEffect(() => {
     async function fetchUsersByQuery() {
-      if(query.length === 0) return
+      if (query.length === 0) return;
       try {
         setLoading(true);
-        const { data } = await axios.get(`https://dummyjson.com/users/search?q=${query}`);
+        const { data } = await axios.get(
+          `https://dummyjson.com/users/search?q=${query}`
+        );
         setUsers(data.users);
       } catch (error) {
         console.log(error);
@@ -45,8 +45,7 @@ const UsersPage = () => {
       }
     }
     fetchUsersByQuery();
-  }, [query])
-
+  }, [query]);
 
   const searchUser = (name) => {
     setQuery(name);
@@ -55,7 +54,8 @@ const UsersPage = () => {
   return (
     <div>
       <h2>Users</h2>
-      <UsersSearch searchUser={searchUser}/>
+      <UsersSearch searchUser={searchUser} />
+      <Link to={"/campers"}>go back</Link>
       {loading && <Loader />}
       {error && <Error />}
       <Users users={users} />
