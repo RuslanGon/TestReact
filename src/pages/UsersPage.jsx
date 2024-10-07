@@ -17,7 +17,7 @@ const UsersPage = () => {
       try {
         setLoading(true);
         const { data } = await axios.get("https://dummyjson.com/users");
-        console.log(data);
+        // console.log(data);
         setUsers(data.users);
       } catch (error) {
         console.log(error);
@@ -28,6 +28,24 @@ const UsersPage = () => {
     }
     fetchUsers();
   }, []);
+
+
+  useEffect(() => {
+    async function fetchUsersByQuery() {
+      if(query.length === 0) return
+      try {
+        setLoading(true);
+        const { data } = await axios.get(`https://dummyjson.com/users/search?q=${query}`);
+        setUsers(data.users);
+      } catch (error) {
+        console.log(error);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchUsersByQuery();
+  }, [query])
 
 
   const searchUser = (name) => {
