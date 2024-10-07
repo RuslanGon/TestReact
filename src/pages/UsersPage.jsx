@@ -1,37 +1,39 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Loader from "../components/Loader/Loader.jsx";
+import { Error } from "../components/Error/Error.jsx";
+import Users from "../components/Users/Users.jsx";
+import UsersSearch from "../components/UsersSearch/UsersSearch.jsx";
 
 const UsersPage = () => {
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    async function fetchImages() {
+    async function fetchUsers() {
       try {
+        setLoading(true);
         const { data } = await axios.get("https://dummyjson.com/users");
         console.log(data);
         setUsers(data.users);
       } catch (error) {
-        console.error("Error fetching images:", error);
+        console.log(error);
+        setError(true);
+      } finally {
+        setLoading(false);
       }
     }
-    fetchImages();
+    fetchUsers();
   }, []);
 
   return (
     <div>
       <h2>Users</h2>
-      <ul>
-       {Array.isArray(users) && users.map((user) => {
-        return <li key={user.id}>
-        <img src={user.image} alt={user.firstName} />
-        <h3>firstName: {user.firstName}</h3>
-        <h3>lastName: {user.lastName}</h3>
-        <p>age: {user.age}</p>
-        <p>gender: {user.gender}</p>
-        <p>phone: {user.phone}</p>
-      </li>
-       }) }
-      </ul>
+      <UsersSearch />
+      {loading && <Loader />}
+      {error && <Error />}
+      <Users users={users} />
     </div>
   );
 };
