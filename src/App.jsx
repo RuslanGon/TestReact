@@ -7,6 +7,7 @@ import { apiRefreshUser } from "./redux/auth/operations.js";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute.jsx";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 import UsersPage from "./pages/UsersPage.jsx";
+import UserDetails from "./components/UserDetails/UserDetails.jsx";
 
 
 // import CarPage from "./pages/Carpage.jsx";
@@ -56,8 +57,7 @@ useEffect(() => {
             <Route path="/search" element={<PrivateRoute><SearchPage /></PrivateRoute>} />
             <Route path="/campers" element={<PrivateRoute><CarPage /></PrivateRoute>} />
             <Route path="/users" element={<PrivateRoute><UsersPage /></PrivateRoute>} />
-
-
+            <Route path="/users/:userId" element={<PrivateRoute><UserDetails /></PrivateRoute>} />
             <Route path="*" element={ <NotFoundPage />} />
           </Routes>
         </Suspense>
