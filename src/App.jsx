@@ -57,7 +57,7 @@ useEffect(() => {
             <Route path="/search" element={<PrivateRoute><SearchPage /></PrivateRoute>} />
             <Route path="/campers" element={<PrivateRoute><CarPage /></PrivateRoute>} />
             <Route path="/users" element={<PrivateRoute><UsersPage /></PrivateRoute>} />
-            <Route path="/users/:userId" element={<PrivateRoute><UserDetails /></PrivateRoute>} />
+            <Route path="/users/:userId" element={<UserDetails />} />
             <Route path="*" element={ <NotFoundPage />} />
           </Routes>
         </Suspense>

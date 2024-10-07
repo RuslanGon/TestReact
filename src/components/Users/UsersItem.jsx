@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const UsersItem = ({user}) => {
   return (
@@ -8,6 +9,7 @@ const UsersItem = ({user}) => {
     <p>age: {user.age}</p>
     <p>gender: {user.gender}</p>
     <p>phone: {user.phone}</p>
+    <Link to={`/users/${user.id}`}>See the details</Link>
   </li>
   )
 }
