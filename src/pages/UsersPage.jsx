@@ -9,6 +9,8 @@ const UsersPage = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [query, setQuery] = useState('')
+  console.log(query);
 
   useEffect(() => {
     async function fetchUsers() {
@@ -27,10 +29,15 @@ const UsersPage = () => {
     fetchUsers();
   }, []);
 
+
+  const searchUser = (name) => {
+    setQuery(name);
+  };
+
   return (
     <div>
       <h2>Users</h2>
-      <UsersSearch />
+      <UsersSearch searchUser={searchUser}/>
       {loading && <Loader />}
       {error && <Error />}
       <Users users={users} />

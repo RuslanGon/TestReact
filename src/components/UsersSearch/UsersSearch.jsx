@@ -12,10 +12,9 @@ const FORM_INITIAL_VALUES = {
  
 };
 
-const UsersSearch = () => {
-  const handleSubmit = (values, actions) => {
-    console.log(values);
-    actions.resetForm();
+const UsersSearch = ({ searchUser }) => {
+  const handleSubmit = (values) => {
+    searchUser(values.name);
   };
 
   return (
@@ -33,7 +32,7 @@ const UsersSearch = () => {
           <ErrorMessage name="name" component="span" />
         </label>
         <br />
-      <button type="submit">Search 👱</button>
+        <button type="submit">Search 👱</button>
       </Form>
     </Formik>
   );
