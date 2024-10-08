@@ -25,9 +25,12 @@ dispatch(apiLogout())
   }
 
   const isHomePage = location.pathname === "/";
+  const isContactsPage = location.pathname === "/contacts";
+  const isMailBoxPage = location.pathname === "/mailbox";
+
 
   return (
-    <div className={isHomePage ? css.homeBackground : ""}>
+    <div className={isHomePage ? css.homeBackground : isContactsPage ? css.contactsBackground : isMailBoxPage ? css.mailBoxBackground : ""}>
       <header>
         <nav className={css.nav}>
           <NavLink className={getNavLinkClassName} to="/">

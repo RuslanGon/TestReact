@@ -3,17 +3,16 @@ import { selectFilter } from "../../redux/mailbox/selectors.js";
 import { setFilter } from "../../redux/mailbox/mailboxReducer.js";
 
 const MailboxFilter = () => {
- const dispatch = useDispatch()
- const filter = useSelector(selectFilter)
+  const dispatch = useDispatch();
+  const filter = useSelector(selectFilter);
 
- const onChangeFilter = (event) => {
-   dispatch(setFilter(event.target.value));
- };
+  const onChangeFilter = (event) => {
+    dispatch(setFilter(event.target.value));
+  };
 
- 
   return (
     <section>
-      <h3>Search user by name or emaile</h3>
+      <h3 style={{ color: "white" }}>Search user by name or email</h3>
       <input
         type="text"
         placeholder="🔍  search..."

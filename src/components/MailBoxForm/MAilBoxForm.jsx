@@ -1,5 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import css from '../MailBoxForm/MailBoxForm.module.css'
+
 
 
 const mailBoxSchema = Yup.object({
@@ -27,7 +29,7 @@ const MAilBoxForm = ({ onAddUsers }) => {
       onSubmit={handleSubmit}
       validationSchema={mailBoxSchema}
     >
-      <Form>
+      <Form className={css.formdiv}>
         <h2>Add new MailBox user</h2>
         <label>
           <span>User email:</span>

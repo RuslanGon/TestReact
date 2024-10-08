@@ -3,10 +3,28 @@
     background-size: cover;
     background-position: center;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
+  }
+
+  .contactsBackground{
+    background-image: url('../../../public/phone.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .mailBoxBackground{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../../../public/mailBox.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
   }
 
 .nav{
+    padding-top: 10px;
+    padding-left: 10px;
     display: flex;
     align-items: center;
     gap: 30px;
@@ -32,3 +50,4 @@ transition: all 0.1s;
 color: white;
 background-color: black;
 }
+
