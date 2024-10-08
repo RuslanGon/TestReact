@@ -1,0 +1,14 @@
+.maindiv {
+    background-image: url(../public/forest-landscape.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 800px;
+    text-align: center;
+    position: absolute;
+}
+
+.text {
+    margin-top: 100px;
+}
