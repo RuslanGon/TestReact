@@ -1,9 +1,10 @@
 import clsx from "clsx";
-import css from "../../App.module.css";
+// import css from "../../App.module.css";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsSignedIn, selectUserData } from "../../redux/auth/selectors.js";
 import { apiLogout } from "../../redux/auth/operations.js";
+import css from '../../components/Layout/Layout.module.css'
 
 const getNavLinkClassName = ({ isActive }) => {
   return clsx(css.navLink, {
