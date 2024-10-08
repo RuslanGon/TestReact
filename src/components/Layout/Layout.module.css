@@ -1,11 +1,10 @@
-.maindiv{
-    background-image: url(../public/forest-landscape.jpg);
+.homeBackground {
+    background-image: url('../public/forest-landscape.jpg');
     background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat; 
-    width: 100vw; 
-    height: 100vh; 
-}
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+  }
 
 .nav{
     display: flex;

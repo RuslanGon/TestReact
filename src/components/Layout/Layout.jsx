@@ -1,6 +1,6 @@
 import clsx from "clsx";
 // import css from "../../App.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsSignedIn, selectUserData } from "../../redux/auth/selectors.js";
 import { apiLogout } from "../../redux/auth/operations.js";
@@ -18,13 +18,16 @@ const Layout = ({ children }) => {
   // const isSignedIn = true
 
   const userData = useSelector(selectUserData)
+  const location = useLocation();
 
   const onLogout = () => {
 dispatch(apiLogout())
   }
 
+  const isHomePage = location.pathname === "/";
+
   return (
-    <div>
+    <div className={isHomePage ? css.homeBackground : ""}>
       <header>
         <nav className={css.nav}>
           <NavLink className={getNavLinkClassName} to="/">
