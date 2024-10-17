@@ -32,3 +32,11 @@ background-color: black;
     height: 100vh;
     width: 100%;
   }
+
+  .theme .dark .navLink {
+    color: white;
+  }
+  
+  .theme .light .navLink {
+    color: #111;
+  }

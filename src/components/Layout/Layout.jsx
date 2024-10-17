@@ -1,5 +1,4 @@
 import clsx from "clsx";
-// import css from "../../App.module.css";
 import { NavLink, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -9,21 +8,23 @@ import {
 import { apiLogout } from "../../redux/auth/operations.js";
 import css from "../../components/Layout/Layout.module.css";
 import DarkModelToggle from "../DarkModelToggle/DarkModelToggle.jsx";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext.jsx";
 
-
-const getNavLinkClassName = ({ isActive }) => {
+const getNavLinkClassName = ({ isActive }, mode) => {
   return clsx(css.navLink, {
     [css.active]: isActive,
+    [css.dark]: mode === "dark",
+    [css.light]: mode === "light",
   });
 };
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
   const isSignedIn = useSelector(selectIsSignedIn);
-  // const isSignedIn = true
-
   const userData = useSelector(selectUserData);
   const location = useLocation();
+  const { mode } = useContext(ThemeContext); // Используем тему из контекста
 
   const onLogout = () => {
     dispatch(apiLogout());
@@ -45,34 +46,32 @@ const Layout = ({ children }) => {
           : ""
       }
     >
-
       <header>
-     
-        <nav className={css.nav}>
-          <NavLink className={getNavLinkClassName} to="/">
+        <nav className={clsx(css.nav, mode)}>
+          <NavLink className={(link) => getNavLinkClassName(link, mode)} to="/">
             Home Page
           </NavLink>
           {isSignedIn ? (
             <>
-              <NavLink className={getNavLinkClassName} to="/contacts">
+              <NavLink className={(link) => getNavLinkClassName(link, mode)} to="/contacts">
                 Contacts Page
               </NavLink>
-              <NavLink className={getNavLinkClassName} to="/mailbox">
+              <NavLink className={(link) => getNavLinkClassName(link, mode)} to="/mailbox">
                 MailBox
               </NavLink>
-              <NavLink className={getNavLinkClassName} to="/products">
+              <NavLink className={(link) => getNavLinkClassName(link, mode)} to="/products">
                 Products
               </NavLink>
-              <NavLink className={getNavLinkClassName} to="/search">
+              <NavLink className={(link) => getNavLinkClassName(link, mode)} to="/search">
                 Search
               </NavLink>
-              <NavLink className={getNavLinkClassName} to="/campers">
+              <NavLink className={(link) => getNavLinkClassName(link, mode)} to="/campers">
                 Campers
               </NavLink>
-              <NavLink className={getNavLinkClassName} to="/users">
+              <NavLink className={(link) => getNavLinkClassName(link, mode)} to="/users">
                 Users
               </NavLink>
-          <DarkModelToggle />
+              <DarkModelToggle />
               <div>
                 <span>Hello {userData.name}</span>
                 <button type="button" onClick={onLogout}>
@@ -82,10 +81,10 @@ const Layout = ({ children }) => {
             </>
           ) : (
             <>
-              <NavLink className={getNavLinkClassName} to="/register">
+              <NavLink className={(link) => getNavLinkClassName(link, mode)} to="/register">
                 Registration Page
               </NavLink>
-              <NavLink className={getNavLinkClassName} to="/login">
+              <NavLink className={(link) => getNavLinkClassName(link, mode)} to="/login">
                 Login Page
               </NavLink>
             </>

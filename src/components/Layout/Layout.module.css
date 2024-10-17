@@ -51,3 +51,10 @@ color: white;
 background-color: black;
 }
 
+.theme .dark .navLink {
+  color: white;
+}
+
+.theme .light .navLink {
+  color: #111;
+}
