@@ -11,20 +11,19 @@ import DarkModelToggle from "../DarkModelToggle/DarkModelToggle.jsx";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext.jsx";
 
-const getNavLinkClassName = ({ isActive }, mode) => {
-  return clsx(css.navLink, {
+const getNavLinkClassName = ({ isActive }, mode) =>
+  clsx(css.navLink, {
     [css.active]: isActive,
     [css.dark]: mode === "dark",
     [css.light]: mode === "light",
   });
-};
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
   const isSignedIn = useSelector(selectIsSignedIn);
   const userData = useSelector(selectUserData);
   const location = useLocation();
-  const { mode } = useContext(ThemeContext); // Используем тему из контекста
+  const { mode } = useContext(ThemeContext); 
 
   const onLogout = () => {
     dispatch(apiLogout());
@@ -36,15 +35,11 @@ const Layout = ({ children }) => {
 
   return (
     <div
-      className={
-        isHomePage
-          ? css.homeBackground
-          : isContactsPage
-          ? css.contactsBackground
-          : isMailBoxPage
-          ? css.mailBoxBackground
-          : ""
-      }
+      className={clsx({
+        [css.homeBackground]: isHomePage,
+        [css.contactsBackground]: isContactsPage,
+        [css.mailBoxBackground]: isMailBoxPage,
+      })}
     >
       <header>
         <nav className={clsx(css.nav, mode)}>
