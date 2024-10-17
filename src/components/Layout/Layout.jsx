@@ -8,6 +8,7 @@ import {
 } from "../../redux/auth/selectors.js";
 import { apiLogout } from "../../redux/auth/operations.js";
 import css from "../../components/Layout/Layout.module.css";
+import DarkModelToggle from "../DarkModelToggle/DarkModelToggle.jsx";
 
 const getNavLinkClassName = ({ isActive }) => {
   return clsx(css.navLink, {
@@ -68,6 +69,7 @@ const Layout = ({ children }) => {
               <NavLink className={getNavLinkClassName} to="/users">
                 Users
               </NavLink>
+          <DarkModelToggle />
               <div>
                 <span>Hello {userData.name}</span>
                 <button type="button" onClick={onLogout}>
