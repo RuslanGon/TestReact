@@ -8,6 +8,21 @@
   box-sizing: border-box;
 } 
 
+.theme{
+  transition: 1s all ease;
+}
+
+.light {
+  background-color: white;
+  color: #111;
+}
+
+.dark {
+  background-color: #111;
+  color: #bbb;
+}
+
+
  /* h1,
 h2,
 h3,
