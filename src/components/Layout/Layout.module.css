@@ -53,6 +53,7 @@ background-color: black;
 
 .dark .navLink {
   color: #bbb;
+
 }
 
 .light .navLink {
@@ -62,9 +63,14 @@ background-color: black;
 .dark {
   background-color: #111;
   color: #bbb;
+  transition: 1s all ease;
+border: 2px solid white;
+
+
 }
 
 .light {
   background-color: white;
   color: #111;
+  transition: 1s all ease;
 }
