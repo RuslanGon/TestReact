@@ -8,6 +8,7 @@ import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute.jsx";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 import UsersPage from "./pages/UsersPage.jsx";
 import UserDetails from "./components/UserDetails/UserDetails.jsx";
+import { ThemeProvider } from "./context/ThemeContext.jsx";
 
 
 // import CarPage from "./pages/Carpage.jsx";
@@ -43,6 +44,8 @@ useEffect(() => {
 }, [dispatch])
 
   return (
+    <ThemeProvider>
+
     <Layout>
         <Suspense fallback={<Loader />}>
           <Routes>
@@ -62,6 +65,7 @@ useEffect(() => {
           </Routes>
         </Suspense>
         </Layout>
+        </ThemeProvider>
   );
 };
 

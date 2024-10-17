@@ -10,6 +10,7 @@ import { apiLogout } from "../../redux/auth/operations.js";
 import css from "../../components/Layout/Layout.module.css";
 import DarkModelToggle from "../DarkModelToggle/DarkModelToggle.jsx";
 
+
 const getNavLinkClassName = ({ isActive }) => {
   return clsx(css.navLink, {
     [css.active]: isActive,
@@ -44,7 +45,9 @@ const Layout = ({ children }) => {
           : ""
       }
     >
+
       <header>
+     
         <nav className={css.nav}>
           <NavLink className={getNavLinkClassName} to="/">
             Home Page
@@ -89,6 +92,7 @@ const Layout = ({ children }) => {
           )}
         </nav>
       </header>
+
       <main>{children}</main>
     </div>
   );
