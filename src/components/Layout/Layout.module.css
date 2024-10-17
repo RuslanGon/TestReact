@@ -51,16 +51,3 @@ color: white;
 background-color: black;
 }
 
-.theme{
-  transition: 1s all ease;
-}
-
-.light {
-  background-color: white;
-  color: #111;
-}
-
-.dark {
-  background-color: #111;
-  color: #bbb;
-}
